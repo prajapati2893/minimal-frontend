@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
 import "./List.css";
 export default function List() {
+
   const [data, setData] = useState([]);
   useEffect(() => {
+    const sampleData = [{
+      id: 1,
+      firstName: "John",
+      lastName: "Doe",
+      email: "john@example.com",
+  }]
     fetch(`${process.env.REACT_APP_BACKEND}/employees`)
       .then((res) => res.json())
       .then((data) => {
         console.log("fetched data");
         setData(data);
+      }).catch(()=>{
+        console.log("Unable to fetch data from server. Setting sample data");
+        setData(sampleData)
       });
   }, []);
   return (
