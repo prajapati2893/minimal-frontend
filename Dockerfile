@@ -1,6 +1,8 @@
 FROM node:20.17.0-bullseye
 
-ENV REACT_APP_BACKEND=http://localhost:8080/api
+ARG REACT_APP_BACKEND
+
+ENV REACT_APP_BACKEND=${REACT_APP_BACKEND}
 
 WORKDIR /minimal-frontend
 COPY package*.json ./
