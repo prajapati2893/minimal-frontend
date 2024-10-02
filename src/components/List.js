@@ -10,7 +10,7 @@ export default function List() {
       lastName: "Doe",
       email: "john@example.com",
   }]
-    fetch(`${process.env.REACT_APP_BACKEND}/employees`)
+    fetch(`/api/employees`)
       .then((res) => res.json())
       .then((data) => {
         console.log("fetched data");
